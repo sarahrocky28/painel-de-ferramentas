@@ -16,7 +16,7 @@ header{
     background-color: rgb(182, 0, 142);
     color: rgb(236, 216, 255);
     font-size: 30px;
-    padding: 15px;
+    padding: 23px;
     display: flex;
     justify-content: center;
 }
@@ -25,7 +25,7 @@ footer{
     background-color: rgb(182, 0, 142);
     color: rgb(236, 216, 255);
     font-size: 17px;
-    padding:7px;
+    padding:15px;
     display: flex;
     justify-content: center 
 }
@@ -33,9 +33,9 @@ footer{
 section{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 50px;
     width: 50px;
-    background-color:rgb(182, 0, 142) ;
+    
     margin: 10px;
 }
 
@@ -44,10 +44,10 @@ section{
 }
 
 main{
-    background-color:rgb(182, 0, 142) ;
+    background-color:rgb(204, 82, 177) ;
     display: flex;
     flex-direction: column;
-    width: 170px;
+    width: 173px;
     height: auto;
     flex: 1;
 }
@@ -56,6 +56,9 @@ button{
     width: 140px;
     height: 70px;
     border-radius: 10px;
+    background-color: rgb(236, 216, 255);
     border: 1px solid rgb(236, 216, 255);
     font-size: 18px;
+    margin: 6px;
+    color: rgb(116, 0, 90);
 }
