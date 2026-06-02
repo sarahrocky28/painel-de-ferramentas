@@ -23,3 +23,11 @@ function displayController(id) {
         }
     });
 }
+
+// const moeda = {
+//     input: document.querySelector("input")
+// }
+
+// moeda.input.addEventListener("click", (evento) => {
+//     evento.preventDefault();
+// });
