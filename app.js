@@ -1,5 +1,5 @@
 const elemento = {
-    aside: documento.querySelector("aside"),
+    aside: document.querySelector("aside"),
     section: document.querySelectorAll("section"),
 }
 
@@ -12,13 +12,14 @@ elemento.aside.addEventListener("click", (evento) => {
 });
 
 function displayController(id) {
-    elemento.sections.array.forEach((section) => {
+    elemento.section.forEach((section) => {
         if (!section.classList.contains("hidden")) {
             section.classList.add("hidden");
         }
 
         //Remove a classe "hidden" do item clicado
-        if (section.classList.contains(id))
-            section.classList.remove
+        if (section.classList.contains(id)) {
+            section.classList.remove("hidden");
+        }
     });
 }
