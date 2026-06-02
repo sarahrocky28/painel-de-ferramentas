@@ -1,14 +1,16 @@
 const elemento = {
-    aside: document.querySelector("aside"),
+    lista: document.querySelector("#lista"),
     section: document.querySelectorAll("section"),
 }
 
-console.log(elemento.aside);
+console.log(elemento.lista);
 
-elemento.aside.addEventListener("click", (evento) => {
+elemento.lista.addEventListener("click", (evento) => {
     evento.preventDefault();
-    console.log(evento.target.id);
-    displayController(evento.target.id)
+    const link = evento.target.closest("a");
+    if (!link) return; // clicou em lugar sem link, ignora
+    console.log(link.id);
+    displayController(link.id);
 });
 
 function displayController(id) {
