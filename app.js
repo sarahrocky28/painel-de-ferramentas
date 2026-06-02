@@ -26,10 +26,43 @@ function displayController(id) {
     });
 }
 
-// const moeda = {
-//     input: document.querySelector("input")
-// }
 
-// moeda.input.addEventListener("click", (evento) => {
-//     evento.preventDefault();
-// });
+
+const moeda = {
+    Digitarvalor: document.querySelector("#Digitarvalor"),
+    moedaOrigem: document.querySelector("#moedaOrigem"),
+    convMoedas: document.querySelector("#convMoedas"),
+    butConverter: document.querySelector("#butConverter"),
+    resulMoeda: document.querySelector("#resulMoeda"),
+}
+console.log(moeda.Digitarvalor);
+console.log(moeda.moedaOrigem);
+console.log(moeda.convMoedas);
+console.log(moeda.butConverter);
+console.log(moeda.resulMoeda);
+
+
+moeda.butConverter.addEventListener("click", (evento) => {
+    evento.preventDefault();
+
+    const valor = parseFloat(moeda.Digitarvalor.value);
+    const origem = moeda.moedaOrigem.value;
+    const destino = moeda.convMoedas.value;
+
+    const taxaUSDparaBRL = 5.72;
+    let resultado;
+
+    if (origem === destino) {
+        resultado = valor;
+    } else if (origem === "USD" && destino === "BRL") {
+        resultado = valor * taxaUSDparaBRL;
+    } else if (origem === "BRL" && destino === "USD") {
+        resultado = valor / taxaUSDparaBRL;
+    } else {
+        resultado = "Conversão não suportada";
+    }
+
+    moeda.resulMoeda.textContent = `Resultado: ${resultado.toFixed(2)}`;
+});
+
+
