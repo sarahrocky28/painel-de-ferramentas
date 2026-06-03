@@ -49,7 +49,7 @@ moeda.butConverter.addEventListener("click", (evento) => {
     const origem = moeda.moedaOrigem.value;
     const destino = moeda.convMoedas.value;
 
-    const taxaUSDparaBRL = 5.72;
+    const taxaUSDparaBRL = 5.02;
     let resultado;
 
     if (origem === destino) {

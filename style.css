@@ -39,16 +39,6 @@ aside{
     flex: 1;
 }
 
-.moedas{
-    display: flex;
-    flex-direction: column;
-}
-
-#Títulomoeda{
-    font-size: 30px;
-    color: rgb(114, 0, 89) ;
-}
-
 main{
     display: flex;
     flex: 1;
@@ -76,10 +66,48 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-
+    
 }
 
 #lista{
     background-color:rgb(182, 0, 142); 
+}
+
+
+.moedas{
+    display: flex;
+    flex-direction: column;
+}
+
+#Títulomoeda{
+    font-size: 30px;
+    color: rgb(114, 0, 89) ;
+}
+
+#Digitarvalor{
+    margin: 10px;
+    padding: 7px;
+    border-radius: 7px;
+    border: 1px solid rgb(114, 0, 89);
+    background-color: rgb(239, 225, 253);
+    color: rgb(114, 0, 89);
+}
+
+#moedaOrigem{
+    margin: 10px;
+    padding: 7px;
+    border-radius: 7px;
+    border: 1px solid rgb(114, 0, 89);
+    background-color: rgb(239, 225, 253);
+    color: rgb(114, 0, 89);
+}
+
+#convMoedas{
+    margin: 10px;
+    padding: 7px;
+    border-radius: 7px;
+    border: 1px solid rgb(114, 0, 89);
+    background-color: rgb(239, 225, 253);
+    color: rgb(114, 0, 89);
 }
 
