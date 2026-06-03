@@ -15,19 +15,15 @@ elemento.lista.addEventListener("click", (evento) => {
 
 function displayController(id) {
     elemento.section.forEach((section) => {
-        if (!section.classList.contains("hidden")) {
-            section.classList.add("hidden");
-        }
-
-        //Remove a classe "hidden" do item clicado
+        section.classList.add("hidden"); // esconde todas
         if (section.classList.contains(id)) {
-            section.classList.remove("hidden");
+            section.classList.remove("hidden"); // mostra só a clicada
         }
     });
 }
 
 
-
+//conversão de moedas
 const moeda = {
     Digitarvalor: document.querySelector("#Digitarvalor"),
     moedaOrigem: document.querySelector("#moedaOrigem"),
@@ -42,27 +38,34 @@ console.log(moeda.butConverter);
 console.log(moeda.resulMoeda);
 
 
-moeda.butConverter.addEventListener("click", (evento) => {
+moeda.butConverter.addEventListener("click", async (evento) => {
     evento.preventDefault();
 
     const valor = parseFloat(moeda.Digitarvalor.value);
     const origem = moeda.moedaOrigem.value;
     const destino = moeda.convMoedas.value;
 
-    const taxaUSDparaBRL = 5.02;
-    let resultado;
-
-    if (origem === destino) {
-        resultado = valor;
-    } else if (origem === "USD" && destino === "BRL") {
-        resultado = valor * taxaUSDparaBRL;
-    } else if (origem === "BRL" && destino === "USD") {
-        resultado = valor / taxaUSDparaBRL;
-    } else {
-        resultado = "Conversão não suportada";
+    if (origem === "dindin" || destino === "dindin") {
+        moeda.resulMoeda.textContent = "Selecione as moedas!";
+        return;
     }
 
-    moeda.resulMoeda.textContent = `Resultado: ${resultado.toFixed(2)}`;
+    if (origem === destino) {
+        moeda.resulMoeda.textContent = `Resultado: ${valor}`;
+        return;
+    }
+
+    try {
+        const resposta = await fetch(`https://economia.awesomeapi.com.br/last/${origem}-${destino}`);
+        const dados = await resposta.json();
+        const chave = `${origem}${destino}`;
+        const taxa = parseFloat(dados[chave].bid);
+        const resultado = (valor * taxa).toFixed(2);
+        moeda.resulMoeda.textContent = `Resultado: ${resultado} ${destino}`;
+    } catch (erro) {
+        moeda.resulMoeda.textContent = "Erro ao buscar a taxa. Tente novamente.";
+        console.error(erro);
+    }
 });
 
 

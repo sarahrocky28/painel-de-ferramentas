@@ -75,7 +75,7 @@ section{
 
 
 .moedas{
-    display: flex;
+    
     flex-direction: column;
 }
 
