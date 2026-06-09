@@ -73,6 +73,7 @@ moeda.butConverter.addEventListener("click", async (evento) => {
 //*conversão pra IMC*//
 
 const imc = {
+    genero: document.querySelector("#imcGenero"),
     peso: document.querySelector("#imcPeso"),
     altura: document.querySelector("#imcAltura"),
     butImc: document.querySelector("#butImc"),
@@ -80,25 +81,52 @@ const imc = {
 }
 
 imc.butImc.addEventListener("click", () => {
+    const genero = imc.genero.value;
     const peso = parseFloat(imc.peso.value);
     const altura = parseFloat(imc.altura.value);
 
-    if (!peso || !altura || altura <= 0) {
-        imc.resulImc.textContent = "Preencha peso e altura corretamente.";
+    // Validações separadas e específicas
+    if (!genero || genero === "escolher") {
+        imc.resulImc.textContent = "Selecione o seu gênero biológico.";
+        return;
+    }
+    if (!peso || peso <= 0) {
+        imc.resulImc.textContent = "Preencha o peso corretamente.";
+        return;
+    }
+    if (!altura || altura <= 0) {
+        imc.resulImc.textContent = "Preencha a altura corretamente.";
         return;
     }
 
     const resultado = peso / (altura * altura);
 
     let categoria;
-    if (resultado < 18.5) categoria = "Abaixo do peso";
-    else if (resultado < 25) categoria = "Peso normal";
-    else if (resultado < 30) categoria = "Sobrepeso";
-    else categoria = "Obesidade";
+
+    if (genero === "masculino") {
+        if (resultado < 20.7) categoria = "Abaixo do peso";
+        else if (resultado < 26.4) categoria = "Peso normal";
+        else if (resultado < 27.8) categoria = "Sobrepeso leve";
+        else if (resultado < 31.1) categoria = "Sobrepeso moderado";
+        else categoria = "Obesidade";
+    } else {
+        if (resultado < 19.1) categoria = "Abaixo do peso";
+        else if (resultado < 25.8) categoria = "Peso normal";
+        else if (resultado < 27.3) categoria = "Sobrepeso leve";
+        else if (resultado < 32.3) categoria = "Sobrepeso moderado";
+        else categoria = "Obesidade";
+    }
 
     imc.resulImc.textContent = `IMC: ${resultado.toFixed(2)} — ${categoria}`;
 });
 
+//*conversão de temperatura*//
 
-//*conversão 
+const temp = {
+    valor: document.querySelector("#tempValor"),
+    origem: document.querySelector("#tempOrigem"),
+    destino: document.querySelector("#tempDestino"),
+    butTemp: document.querySelector("#butTemp"),
+    resulTemp: document.querySelector("#resulTemp"),
+}
 
