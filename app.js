@@ -108,13 +108,15 @@ imc.butImc.addEventListener("click", () => {
         else if (resultado < 26.4) categoria = "Peso normal";
         else if (resultado < 27.8) categoria = "Sobrepeso leve";
         else if (resultado < 31.1) categoria = "Sobrepeso moderado";
-        else categoria = "Obesidade";
+        else if (resultado < 35.1) categoria = "Obesidade";
+        else categoria = "Obesidade mórbida";
     } else {
         if (resultado < 19.1) categoria = "Abaixo do peso";
         else if (resultado < 25.8) categoria = "Peso normal";
         else if (resultado < 27.3) categoria = "Sobrepeso leve";
         else if (resultado < 32.3) categoria = "Sobrepeso moderado";
-        else categoria = "Obesidade";
+        else if (resultado < 35.1) categoria = "Obesidade";
+        else categoria = "Obesidade mórbida";
     }
 
     imc.resulImc.textContent = `IMC: ${resultado.toFixed(2)} — ${categoria}`;
@@ -130,3 +132,17 @@ const temp = {
     resulTemp: document.querySelector("#resulTemp"),
 }
 
+temp.butTemp.addEventListener("click", () => {
+    const valor = parseFloat(temp.valor.value);
+    const origem = temp.origem.value;
+    const destino = temp.destino.value;
+
+    if (origem === "vazio" || destino === "vazio") {
+        temp.resulTemp.textContent = "Selecione as unidades!";
+        return;
+    }
+    if (origem === destino) {
+        temp.resulTemp.textContent = ` Resultado: ${valor} °${destino}`;
+        return;
+    }
+});
