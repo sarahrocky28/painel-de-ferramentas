@@ -146,13 +146,11 @@ temp.butTemp.addEventListener("click", () => {
         return;
     }
 
-    // Passo 1: converter o valor para Celsius
     let emCelsius;
     if (origem === "C") emCelsius = valor;
     else if (origem === "F") emCelsius = (valor - 32) * 5 / 9;
     else if (origem === "K") emCelsius = valor - 273.15;
 
-    // Passo 2: converter de Celsius para o destino
     let resultado;
     if (destino === "C") resultado = emCelsius;
     else if (destino === "F") resultado = (emCelsius * 9 / 5) + 32;
@@ -197,4 +195,69 @@ vel.butVel.addEventListener("click", () => {
     else if (destino === "mph") resultado = emKmh / 1.60934;
 
     vel.resulVel.textContent = `Resultado: ${resultado.toFixed(4)} ${destino}`;
+});
+
+//*calculo de massas*//
+const massa = {
+    valor: document.querySelector("#massaValor"),
+    origem: document.querySelector("#massaOrigem"),
+    destino: document.querySelector("#massaDestino"),
+    butMassa: document.querySelector("#butMassa"),
+    resulMassa: document.querySelector("#resulMassa"),
+}
+
+massa.butMassa.addEventListener("click", () => {
+    const valor = parseFloat(massa.valor.value);
+    const origem = massa.origem.value;
+    const destino = massa.destino.value;
+
+    if (origem === "vazio" || destino === "vazio") {
+        massa.resulMassa.textContent = "Selecione as unidades!";
+        return;
+    }
+    if (origem === destino) {
+        massa.resulMassa.textContent = `Resultado: ${valor} ${destino}`;
+        return;
+    }
+
+    // Passo 1: converter para kg
+    let emKg;
+    if (origem === "kg") emKg = valor;
+    else if (origem === "g") emKg = valor / 1000;
+    else if (origem === "lb") emKg = valor * 0.453592;
+    else if (origem === "oz") emKg = valor * 0.0283495;
+
+    // Passo 2: converter de kg para o destino
+    let resultado;
+    if (destino === "kg") resultado = emKg;
+    else if (destino === "g") resultado = emKg * 1000;
+    else if (destino === "lb") resultado = emKg / 0.453592;
+    else if (destino === "oz") resultado = emKg / 0.0283495;
+
+    massa.resulMassa.textContent = `Resultado: ${resultado.toFixed(4)} ${destino}`;
+});
+
+//*regra de 3*//
+const regra3 = {
+    a: document.querySelector("#r3A"),
+    b: document.querySelector("#r3B"),
+    c: document.querySelector("#r3C"),
+    x: document.querySelector("#r3X"),
+    butRegra3: document.querySelector("#butRegra3"),
+    resulRegra3: document.querySelector("#resulRegra3"),
+}
+
+regra3.butRegra3.addEventListener("click", () => {
+    const a = parseFloat(regra3.a.value);
+    const b = parseFloat(regra3.b.value);
+    const c = parseFloat(regra3.c.value);
+
+    if (!a || !b || !c || a === 0) {
+        regra3.resulRegra3.textContent = "Preencha os três valores. O primeiro não pode ser zero.";
+        return;
+    }
+
+    const x = (b * c) / a;
+    regra3.x.textContent = x.toFixed(2);
+    regra3.resulRegra3.textContent = `X = ${x.toFixed(2)}`;
 });

@@ -101,23 +101,47 @@
                 <p id="resulVel"></p>
             </section>
 
-
             <section class="hidden massa">
-                <h2>Codigo 5<br></h2>
-                <img src="" alt="">
+                <h2 class="titulo-secao">Conversor de Massa</h2>
+                <input type="number" placeholder="Digite o valor" id="massaValor">
+                <select id="massaOrigem">
+                    <option value="vazio">De:</option>
+                    <option value="kg">Quilograma (kg)</option>
+                    <option value="g">Grama (g)</option>
+                    <option value="lb">Libra (lb)</option>
+                    <option value="oz">Onça (oz)</option>
+                </select>
+                <h3>para</h3>
+                <select id="massaDestino">
+                    <option value="vazio">Para:</option>
+                    <option value="kg">Quilograma (kg)</option>
+                    <option value="g">Grama (g)</option>
+                    <option value="lb">Libra (lb)</option>
+                    <option value="oz">Onça (oz)</option>
+                </select>
+                <button id="butMassa">Converter</button>
+                <p id="resulMassa"></p>
             </section>
 
 
             <section class="hidden regra3">
-                <h2>Codigo 6<br></h2>
-                <img src="" alt="">
+                <h2 class="titulo-secao">Regra de Três</h2>
+                <p class="instrucao-regra3">Se <input type="number" id="r3A"> equivale a <input type="number" id="r3B">,
+                </p>
+                <p class="instrucao-regra3">então <input type="number" id="r3C"> equivale a <span id="r3X">?</span></p>
+                <button id="butRegra3">Calcular</button>
+                <p id="resulRegra3"></p>
             </section>
-        </aside>
 
+        </aside>
     </main>
 
-    <footer><strong>Lorem ipsum dolor sit</strong>
-    </footer>
+    <footer><strong>Lorem ipsum dolor sit</strong></footer>
+</body>
+
+</html>
+</main>
+
 </body>
 
 </html>
