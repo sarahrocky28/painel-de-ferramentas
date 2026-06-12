@@ -60,11 +60,24 @@
                 <p id="resulImc"></p>
             </section>
 
-
             <section class="hidden temperatura">
-                <h2>Codigo 3<br></h2>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoUZDEW0_G7ujXszLtyViGrlVUK51nlLrWgQ&s"
-                    alt="" width="200px">
+                <h2 class="titulo-secao">Conversor de Temperatura</h2>
+                <input type="number" placeholder="Digite o valor" id="tempValor">
+                <select id="tempOrigem">
+                    <option value="vazio">De:</option>
+                    <option value="C">Celsius (°C)</option>
+                    <option value="F">Fahrenheit (°F)</option>
+                    <option value="K">Kelvin (K)</option>
+                </select>
+                <h3>para</h3>
+                <select id="tempDestino">
+                    <option value="vazio">Para:</option>
+                    <option value="C">Celsius (°C)</option>
+                    <option value="F">Fahrenheit (°F)</option>
+                    <option value="K">Kelvin (K)</option>
+                </select>
+                <button id="butTemp">Converter</button>
+                <p id="resulTemp"></p>
             </section>
 
 

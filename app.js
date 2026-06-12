@@ -142,7 +142,21 @@ temp.butTemp.addEventListener("click", () => {
         return;
     }
     if (origem === destino) {
-        temp.resulTemp.textContent = ` Resultado: ${valor} °${destino}`;
+        temp.resulTemp.textContent = `Resultado: ${valor} °${destino};`
         return;
     }
+
+    // Passo 1: converter o valor para Celsius
+    let emCelsius;
+    if (origem === "C") emCelsius = valor;
+    else if (origem === "F") emCelsius = (valor - 32) * 5 / 9;
+    else if (origem === "K") emCelsius = valor - 273.15;
+
+    // Passo 2: converter de Celsius para o destino
+    let resultado;
+    if (destino === "C") resultado = emCelsius;
+    else if (destino === "F") resultado = (emCelsius * 9 / 5) + 32;
+    else if (destino === "K") resultado = emCelsius + 273.15;
+
+    temp.resulTemp.textContent = `Resultado: ${resultado.toFixed(2)} ${destino};`
 });
