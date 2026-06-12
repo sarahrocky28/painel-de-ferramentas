@@ -82,9 +82,23 @@
 
 
             <section class="hidden velocidade">
-                <h2>Codigo 4<br></h2>
-                <img src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1536,h_536/https://paviloche.com.br/wp-content/uploads/2022/02/diversas-bolas-de-sorvete-baixa-1536x536.jpg"
-                    alt="" width="200px">
+                <h2 class="titulo-secao">Conversor de Velocidade</h2>
+                <input type="number" placeholder="Digite o valor" id="velValor">
+                <select id="velOrigem">
+                    <option value="vazio">De:</option>
+                    <option value="kmh">km/h</option>
+                    <option value="ms">m/s</option>
+                    <option value="mph">mph</option>
+                </select>
+                <h3>para</h3>
+                <select id="velDestino">
+                    <option value="vazio">Para:</option>
+                    <option value="kmh">km/h</option>
+                    <option value="ms">m/s</option>
+                    <option value="mph">mph</option>
+                </select>
+                <button id="butVel">Converter</button>
+                <p id="resulVel"></p>
             </section>
 
 

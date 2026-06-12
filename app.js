@@ -160,3 +160,41 @@ temp.butTemp.addEventListener("click", () => {
 
     temp.resulTemp.textContent = `Resultado: ${resultado.toFixed(2)} ${destino};`
 });
+
+
+//*função de velocidade*//
+
+const vel = {
+    valor: document.querySelector("#velValor"),
+    origem: document.querySelector("#velOrigem"),
+    destino: document.querySelector("#velDestino"),
+    butVel: document.querySelector("#butVel"),
+    resulVel: document.querySelector("#resulVel"),
+}
+
+vel.butVel.addEventListener("click", () => {
+    const valor = parseFloat(vel.valor.value);
+    const origem = vel.origem.value;
+    const destino = vel.destino.value;
+
+    if (origem === "vazio" || destino === "vazio") {
+        vel.resulVel.textContent = "Selecione as unidades!";
+        return;
+    }
+    if (origem === destino) {
+        vel.resulVel.textContent = `Resultado: ${valor} ${destino}`;
+        return;
+    }
+
+    let emKmh;
+    if (origem === "kmh") emKmh = valor;
+    else if (origem === "ms") emKmh = valor * 3.6;
+    else if (origem === "mph") emKmh = valor * 1.60934;
+
+    let resultado;
+    if (destino === "kmh") resultado = emKmh;
+    else if (destino === "ms") resultado = emKmh / 3.6;
+    else if (destino === "mph") resultado = emKmh / 1.60934;
+
+    vel.resulVel.textContent = `Resultado: ${resultado.toFixed(4)} ${destino}`;
+});
